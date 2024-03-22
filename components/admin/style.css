@@ -1,0 +1,891 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar a img {
+    height: 32px;
+    border-radius: 16px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.navbar .profile-nav {
+    height: 10%;
+    background: linear-gradient(135deg, #101820 50%, red 30%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    border-bottom: 5px solid red;
+}
+.navbar .profile-nav a {
+    color: black;
+    font-size: 12px;
+    &:hover {
+        color: rgb(0, 162, 255);
+    }
+}
+.navbar .profile-nav img {
+    height: 32px;
+    border-radius: 50%;
+}
+.navbar .profile-nav .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+/* bottom nav */
+.bottom-nav {
+    top: 0;
+    position: sticky;
+    z-index: 1;
+    box-shadow: 0 3px 5px black;
+    height: 36px;
+    background-color: #101820;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.bottom-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    &:hover {
+        color: rgb(255, 8, 0);
+    }
+}
+.bottom-nav ul {
+    display: flex;
+    gap: 20px;
+}
+.bottom-nav ul li {
+    list-style-type: none;
+}
+
+/* Effect */
+.bottom-nav .s1 ul li {
+    position: relative;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-nav .s1 ul li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+    transform: scaleX(0);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.bottom-nav .s1 ul li a:hover {
+    color: red;
+}
+
+.bottom-nav .s1 ul li a:hover::after {
+    transform: scaleX(1);
+    background-color: red;
+}
+
+/* button */
+.bottom-nav button {
+    padding: 5px 10px 5px 10px;
+    background-color: red;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 14px;
+    min-width: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+/* TOOL TIP */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: rgb(31, 30, 30);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    font-size: 12px;
+    width: 100px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+    transform: translateY(5px);
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* DROP DOWN  */
+
+.navbar .profile-nav .users {
+    height: 32px;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid wheat;
+    box-shadow: 2px white;
+}
+.navbar .profile-nav .profile {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.items {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    transform: translateX(-130px);
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.items a {
+    border: 8px;
+    margin: 2px;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown .items a:hover {
+    color: red;
+    background-color: #f3f3f3;
+}
+.dropdown:hover .items {
+    display: block;
+}
+
+/* main */
+main {
+    /* background-image: url('https://www.shutterstock.com/image-photo/black-piggy-bank-on-table-600nw-1172113240.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: #f3f3f3;
+    /* margin:0 0 16px 0; */
+    color: black;
+}
+
+main .hero {
+    margin: 0 32px 16px 32px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 10px;
+}
+
+main .hero .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+main .hero .account-main .account-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0 24px 0;
+}
+main .hero .account-main .account-details .balance {
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 30%;
+    font-weight: 600;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+}
+
+.acc-balance {
+    border-bottom: 2px solid black;
+    padding-bottom: 4px;
+}
+
+.acc-no {
+    height: 100px;
+    border-bottom: 2px solid black;
+    padding-bottom: 4px;
+}
+
+/* RM */
+.rm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    height: 200px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+    background-color: white;
+    color: black;
+}
+
+.rm i {
+    font-size: 32px;
+}
+
+.rm .btn {
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(31, 30, 30);
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 14px;
+    min-width: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.rm .btn:hover {
+    background-color: rgb(18, 18, 145);
+}
+
+.account-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 24px 0 24px 0;
+    font-weight: 600;
+    height: 100px;
+    gap: 10px;
+}
+
+.recent-payee {
+    padding: 3px 5px 3px 5px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    width: 50%;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+}
+
+.quick-transfer {
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+    width: 50%;
+    padding: 3px 5px 3px 5px;
+    border: 2px solid black;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+}
+.quick-transfer input {
+    border: none;
+    min-height: 16px;
+    border-bottom: 1px solid black;
+    font-size: 13px;
+}
+.quick-transfer button {
+    padding: 2px 15px 2px 15px;
+    background-color: rgb(31, 30, 30);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: greenyellow;
+        color: black;
+    }
+}
+/* footer */
+footer {
+    bottom: 0;
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-top: 2px solid red;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: rgb(0, 157, 255);
+}
+
+/* PROFILE PAGE */
+
+.profile-main {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0 20px 0;
+}
+.profile-main .profile-pic {
+    height: 300px;
+    width: 300px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-top: 50px;
+}
+
+.profile-main .pic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+/* FORM */
+.wrapper {
+    /* background: #fff; */
+    max-width: 450px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+        0 32px 64px -48px rgba(0, 0, 0, 0.5);
+
+    background-color: #101820;
+    color: white;
+}
+.form {
+    padding: 25px 30px;
+}
+.form header {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.form header span {
+    padding: 0 0 0 30px;
+    font-size: 15px;
+}
+.form form {
+    margin: 20px 0;
+}
+.form form .error-text {
+    color: #721c24;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 10px;
+    display: none;
+}
+/* .form form .name-details {
+    display: flex;
+}
+.form .name-details .field:first-child {
+    margin-right: 10px;
+}
+.form .name-details .field:last-child {
+    margin-left: 10px;
+} */
+.form form .field {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    position: relative;
+}
+.form form .field label {
+    margin-bottom: 5px;
+}
+.form form .input input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: none;
+    /* border: 1px solid #ccc; */
+    background-color: black;
+    color: white;
+    border-bottom: 2px solid red;
+}
+.form form .field input {
+    outline: none;
+}
+.form form .image input {
+    font-size: 17px;
+}
+.form form .button input {
+    height: 45px;
+    border: none;
+    font-size: 17px;
+    /* background: #333; */
+    /* color: #fff; */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 13px;
+
+    background: #721c24;
+    color: white;
+    &:hover {
+        background: red;
+        color: white;
+    }
+}
+.form form .field i {
+    position: absolute;
+    right: 15px;
+    top: 70%;
+    color: #ccc;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+.form form .field i.active::before {
+    color: #333;
+    content: "\f070";
+}
+.form .link {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+}
+.form .link a {
+    color: #333;
+}
+.form .link a:hover {
+    text-decoration: underline;
+}
+
+.form textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 4px 10px 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form form .field select {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    /* border: 1px solid #ccc; */
+    border: none;
+    background-color: black;
+    color: white;
+}
+/* ACCOUNT SUMMARY */
+.account-summary-main {
+    min-height: 100vh;
+    padding: 32px 32px 32px 32px;
+    display: flex;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+/* table */
+.styled-table {
+    width: 1000px;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: red;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: white;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #1f1e1e;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #1f1e1e;
+}
+
+.styled-table button {
+    background: black;
+    color: white;
+    padding: 3px 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+    &:hover {
+        background-color: red;
+    }
+}
+
+/* FUND TRANSFER */
+
+.fund-transfer-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 20px 0;
+}
+
+/* RAISE REQUEST */
+.raise-request-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 20px 0;
+}
+
+/* Admin Dashborad */
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px;
+}
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.container .box {
+    background-color: #101820;
+    color: white;
+    padding: 24px;
+    width: 200px;
+    height: 50px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 8px 16px black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Modify */
+
+.banner {
+    height: 100px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    color: white;
+}
+
+.modify-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    gap: 30px;
+}
+.modify-main .table .styled-table {
+    width: 50px;
+}
+
+.modify-main .table {
+    height: 600px;
+    /* overflow-y: auto; */
+}
+
+.form .radio {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-around;
+}
+
+/* announcement */
+.announcement-main {
+    padding: 30px;
+}
+.announcement-main .container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+.announcement-main .container form {
+    margin-top: 20px;
+}
+.announcement-main .container label {
+    display: block;
+    margin-bottom: 5px;
+}
+.announcement-main .container input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.announcement-main .container textarea {
+    resize: vertical;
+}
+.announcement-main .container input[type="submit"] {
+    background-color: #003366;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.announcement-main .container input[type="submit"]:hover {
+    background-color: #001a33;
+}
+
+/* Help */
+.help-main {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    flex-direction: column;
+    gap: 30px;
+}
+.help-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(18, 18, 35);
+    color: white;
+    gap: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px;
+}
+.user-details {
+    display: flex;
+    justify-content: space-between;
+}
+.user-details .usr {
+    display: flex;
+    gap: 30px;
+    padding-left: 15px;
+    &:first-child {
+        border-left: 2px solid white;
+    }
+}
+.user-details button {
+    background: black;
+    color: white;
+    padding: 3px 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: #721c24;
+    }
+}
+.user-message {
+    margin: 15px 20px;
+    padding: 20px;
+    background-color: #f3f3f3;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 8px;
+}
+.user-message h3 {
+    color: red;
+}
+
+/* modify */
+
+#hidden {
+    display: none;
+}
+.hidden-form .container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f3f3f3;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* .hidden-form .container form {
+    margin-top: 20px;
+} */
+.hidden-form .container label {
+    display: block;
+    margin-bottom: 5px;
+}
+.hidden-form .container input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.hidden-form .container textarea {
+    resize: vertical;
+}
+.hidden-form .container input[type="submit"] {
+    background-color: #003366;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.hidden-form .container input[type="submit"]:hover {
+    background-color: #001a33;
+}
+
+.hidden-form .styled-table button {
+    background-color: #001a33;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 6px;
+    color: white;
+    &:hover {
+        background-color: rgb(25, 25, 118);
+    }
+}
+
+/* chart */
+
+.chart-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    width: 100%;
+}
+
+.col {
+    flex: 0 0 auto;
+    width: 30%;
+    max-width: 30%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #008fff;
+    color:white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.center{
+    margin: 0 auto;
+    margin-top: 100px;
+    width: fit-content;
+}
