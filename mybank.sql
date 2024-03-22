@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2024 at 09:25 AM
+-- Generation Time: Mar 22, 2024 at 01:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -116,6 +116,36 @@ CREATE TABLE `customers` (
   `LastLogin` varchar(50) NOT NULL,
   `Status` varchar(50) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`ID`, `CRN`, `AccountNo`, `FullName`, `UserName`, `Password`, `Balance`, `PhoneNo`, `Email`, `gender`, `Address`, `District`, `State`, `Pincode`, `AadhaarNo`, `IFSC`, `img`, `DateOfOpening`, `lastInterestDate`, `LastLogin`, `Status`) VALUES
+(161, 23059640, 2003939678, 'G. Bal Gopal', 'balgopal', '72f7ca030f9f095f4da7e11e3ab3b632', 0.00, 8260429141, 'balgopal@gmail.com', 'male', 'Rajghat chhak', 'Bhadrak', 'Odisha', 756100, 780049458511, 'BDK000B001', '1710939192admin.jpg', '2024-03-20', '2024-03-20', '2024-03-21 01:04:13', 'Active'),
+(168, 23051764, 2003715323, 'Sourav Das', 'sourav', '231f009004ef61cee94304a5b0f4f052', 0.00, 8260429141, 'sourav@gmail.com', 'male', 'Dappa', 'Bhadrak', 'Odisha', 756100, 825232352325, 'BDK000B001', '171108483916.jpg', '2024-03-22', '2024-03-22', '2024-03-22 10:52:14', 'Active');
+
+--
+-- Triggers `customers`
+--
+DELIMITER $$
+CREATE TRIGGER `DeleteRelatedTransactions` AFTER DELETE ON `customers` FOR EACH ROW BEGIN
+    DECLARE sender_exists INT;
+    DECLARE receiver_exists INT;
+
+       SELECT COUNT(*) into sender_exists FROM customers INNER JOIN transactions ON transactions.Sender=customers.AccountNo;
+
+       SELECT COUNT(*) into receiver_exists FROM customers INNER JOIN transactions ON transactions.Receiver=customers.AccountNo;
+
+
+    IF sender_exists = 0 OR receiver_exists = 0 THEN
+              DELETE FROM transactions WHERE Sender = OLD.AccountNo OR Receiver = OLD.AccountNo;
+    ELSE
+                DELETE FROM transactions WHERE (Sender = OLD.AccountNo AND Receiver = 0) OR (Receiver = OLD.AccountNo AND Sender = 0);
+    END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -389,7 +419,7 @@ ALTER TABLE `contactus`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -425,19 +455,19 @@ ALTER TABLE `payee`
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `rmrequest`
 --
 ALTER TABLE `rmrequest`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `TransactionID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
+  MODIFY `TransactionID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
 
 --
 -- Constraints for dumped tables
