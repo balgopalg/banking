@@ -143,6 +143,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/prac.php";
                         <div class="field input">
                             <label>Pincode</label>
                             <input type="text" name="pincode" id="pincode" placeholder="Enter your Pincode" pattern="[0-9]{6}" maxlength="6">
+                            <div id="invalid-pin" style="font-size:16px;"></div>
                         </div>
                         <div class="field input">
                             <label>District</label>
@@ -161,7 +162,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/prac.php";
                                     document.getElementById('district').value = data.district;
                                     document.getElementById('state').value = data.state;
                                 } else {
-                                    alert('Invalid PIN code');
+                                    document.getElementById('invalid-pin').innerHTML = "Enter valid pincode";
+                                    setTimeout(() => {
+                                         document.getElementById('invalid-pin').innerHTML = "";
+                                    }, 3000);
                                 }
                             }
                             document.getElementById('pincode').addEventListener('blur', lookupPincode);
