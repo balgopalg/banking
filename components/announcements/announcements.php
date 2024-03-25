@@ -37,7 +37,7 @@
         </div>
     </nav>
     <div class="bottom-nav">
-            <div>
+            <div class="s1">
                 <ul>
                     <li><a href="/index.php">HOME</a></li>
                     <li><a href="/components/extra/about-us.php">ABOUT US</a></li>
