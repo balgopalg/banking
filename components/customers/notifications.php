@@ -174,7 +174,7 @@
                     }
                     if (isset($_POST['loans'])) {
                         $notification_selected = true;
-                        $get_allnotification = mysqli_query($conn, "SELECT * FROM notifications WHERE AccountNo=$accountNo AND Actions='loanSanctioned' OR Actions='loanRejected' OR Actions='loanPaid'");
+                        $get_allnotification = mysqli_query($conn, "SELECT * FROM notifications WHERE AccountNo=$accountNo AND (Actions='loanSanctioned' OR Actions='loanRejected' OR Actions='loanPaid')");
                         if (mysqli_num_rows($get_allnotification) > 0) {
                             while ($retriveNoti = mysqli_fetch_assoc($get_allnotification)) {
                                 if ($retriveNoti['Actions'] == 'loanSanctioned') {
@@ -191,7 +191,7 @@
                     }
                     if (isset($_POST['investments'])) {
                         $notification_selected = true;
-                        $get_allnotification = mysqli_query($conn, "SELECT * FROM notifications WHERE AccountNo=$accountNo AND Actions='FDCreated' OR Actions='FDBreaked'");
+                        $get_allnotification = mysqli_query($conn, "SELECT * FROM notifications WHERE AccountNo=$accountNo AND (Actions='FDCreated' OR Actions='FDBreaked')");
                         if (mysqli_num_rows($get_allnotification) > 0) {
                             while ($retriveNoti = mysqli_fetch_assoc($get_allnotification)) {
                                 if ($retriveNoti['Actions'] == 'FDCreated') {
